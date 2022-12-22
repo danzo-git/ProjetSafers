@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
+use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=CategorieRepository::class)
  */
-class Category
+class Categorie
 {
     /**
      * @ORM\Id
@@ -30,7 +30,7 @@ class Category
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Biens::class, mappedBy="idCategory")
+     * @ORM\OneToMany(targetEntity=Bien::class, mappedBy="categorie")
      */
     private $biens;
 
@@ -69,32 +69,36 @@ class Category
     }
 
     /**
-     * @return Collection<int, Biens>
+     * @return Collection<int, Bien>
      */
     public function getBiens(): Collection
     {
         return $this->biens;
     }
 
-    public function addBien(Biens $bien): self
+    public function addBien(Bien $bien): self
     {
         if (!$this->biens->contains($bien)) {
             $this->biens[] = $bien;
-            $bien->setIdCategory($this);
+            $bien->setCategorie($this);
         }
 
         return $this;
     }
 
-    public function removeBien(Biens $bien): self
+    public function removeBien(Bien $bien): self
     {
         if ($this->biens->removeElement($bien)) {
             // set the owning side to null (unless already changed)
-            if ($bien->getIdCategory() === $this) {
-                $bien->setIdCategory(null);
+            if ($bien->getCategorie() === $this) {
+                $bien->setCategorie(null);
             }
         }
 
         return $this;
+    }
+    public function __toString():string
+    {
+        return $this->nom;    
     }
 }

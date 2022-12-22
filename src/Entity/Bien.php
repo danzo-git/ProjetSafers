@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\BiensRepository;
+use App\Repository\BienRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BiensRepository::class)
+ * @ORM\Entity(repositoryClass=BienRepository::class)
  */
-class Biens
+class Bien
 {
     /**
      * @ORM\Id
@@ -20,7 +20,7 @@ class Biens
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $titre;
 
     /**
      * @ORM\Column(type="integer")
@@ -43,24 +43,24 @@ class Biens
     private $postal;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="biens")
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="biens")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $idCategory;
+    private $categorie;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getTitre(): ?string
     {
-        return $this->nom;
+        return $this->titre;
     }
 
-    public function setNom(string $nom): self
+    public function setTitre(string $titre): self
     {
-        $this->nom = $nom;
+        $this->titre = $titre;
 
         return $this;
     }
@@ -113,15 +113,19 @@ class Biens
         return $this;
     }
 
-    public function getIdCategory(): ?Category
+    public function getCategorie(): ?Categorie
     {
-        return $this->idCategory;
+        return $this->categorie;
     }
 
-    public function setIdCategory(?Category $idCategory): self
+    public function setCategorie(?Categorie $categorie): self
     {
-        $this->idCategory = $idCategory;
+        $this->categorie = $categorie;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->getTitre();
     }
 }
