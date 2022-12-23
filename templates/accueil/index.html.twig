@@ -15,7 +15,7 @@
 								<img src="assets/images/cart/img_01.jpg" alt="image_not_found">
 							</div>
 							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
+								<h4 class="item_title">Yellow Blouse dean</h4>
 								<span class="item_price">$30.00</span>
 							</div>
 							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
@@ -416,10 +416,13 @@
 
 			<!-- category_section - start
 			================================================== -->
+			
 			<section class="category_section sec_ptb_100 clearfix">
+			
 				<div class="container">
-
+					
 					<div class="carparts_category_carousel clearfix">
+					{% for safer in safers %}
 						<div class="item">
 							<div class="primary_carparts_category">
 								<div class="item_offer bg_carparts_red">
@@ -427,172 +430,26 @@
 									<span>OFF</span>
 								</div>
 								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_01.png" alt="image_not_found">
+									<img src="uploads/images/{{safer.image}}" alt="image_not_found">
 									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
 								</div>
 								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
+									<h3 class="item_title">{{safer.titre}}</h3>
+									<span class="item_instock">{{safer.status}}</span>
 								</div>
 							</div>
 						</div>
+		
 
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_02.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
+					
 
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_03.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_04.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_05.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_01.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_02.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_03.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_04.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="primary_carparts_category">
-								<div class="item_offer bg_carparts_red">
-									<span>-19</span>
-									<span>OFF</span>
-								</div>
-								<div class="item_image">
-									<img src="assets/images/category/car_parts/img_05.png" alt="image_not_found">
-									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-								<div class="item_content">
-									<h3 class="item_title">Stoptech</h3>
-									<span class="item_instock">(898 items)</span>
-								</div>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
-
+					
 				</div>
+				 
 			</section>
+			 
 			<!-- category_section - end
 			================================================== -->
 

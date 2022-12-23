@@ -22,10 +22,13 @@ class BienCrudController extends AbstractCrudController
         yield AssociationField::new('categorie');
         yield TextField::new('titre');
         yield NumberField::new('surface');
-        yield TextField::new('postal');
+       // yield TextField::new('postal');
         yield BooleanField::new('status');
-        yield TextField::new('postal');
+       
         yield TextField::new('ville');
+        yield TextField::new('postal');
+        yield ImageField::new('image')->setBasePath('uploads/images/')
+        ->setUploadDir('/public/uploads/images/');
         
     }
 
