@@ -393,9 +393,13 @@
 			<section class="category_section sec_ptb_100 clearfix">
 			
 				<div class="container">
+				{# {% for find5Bien in find5Biens %}
+					{{  find5Bien.titre }}
+					{% endfor %} #}
 					
 					<div class="carparts_category_carousel clearfix">
-					{% for safer in safers %}
+					{# {% for safer in safers %} #}
+					{% for find5Bien in find5Biens %}
 						<div class="item">
 							<div class="primary_carparts_category">
 								<div class="item_offer bg_carparts_red">
@@ -403,12 +407,12 @@
 									<span>OFF</span>
 								</div>
 								<div class="item_image">
-									<img src="uploads/images/{{safer.image}}" alt="image_not_found">
+									<img src="uploads/images/{{find5Bien.image}}" alt="image_not_found">
 									<a class="icon_btn bg_carparts_red" href="#!"><i class="fal fa-arrow-right"></i></a>
 								</div>
 								<div class="item_content">
-									<h3 class="item_title">{{safer.titre}}</h3>
-									<span class="item_instock">{{safer.status}}</span>
+									<h3 class="item_title">{{find5Bien.titre}}</h3>
+									<span class="item_instock">{{find5Bien.surface}}m²</span>
 								</div>
 							</div>
 						</div>
@@ -570,7 +574,7 @@
 										<div class="item_image" data-bg-color="#f8f8f8">
 											<img src="uploads/images/{{safer.image}}" alt="image_not_found">
 											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
+												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="{{path("bien",['id' , safer.id])}}"><i class="fal fa-heart"></i></a></li>
 												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
 												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
 											</ul>
@@ -598,319 +602,6 @@
 								</div>
 								{% endfor %}
 
-								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_02.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Car Parts</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_danger">Hot</li>
-										</ul>
-									</div>
-								</div> #}
-
-								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_03.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Car Wheel</a>
-											</h3>
-											<span class="price_text"><strong>$99</strong></span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_04.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Car Engine</a>
-											</h3>
-											<span class="price_text"><strong>$229.90</strong> <del>$428.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">New</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_05.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Lorem Lipsum</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong></span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_06.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">earphone case</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">New</li>
-											<li class="bg_carparts_red">Sale</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_07.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">earphone case</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">New</li>
-											<li class="bg_carparts_red">Sale</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_07.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">earphone case</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">New</li>
-											<li class="bg_carparts_red">Sale</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_08.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">earphone parts</a>
-											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">Sale</li>
-										</ul>
-									</div>
-								</div> #}
-
-								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_09.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">ear speaker</a>
-											</h3>
-											<span class="price_text"><strong>$49.90</strong> <del>$58.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">Discount</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_10.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Car Boower</a>
-											</h3>
-											<span class="price_text"><strong>$299.90</strong></span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-									<div class="carparts_product_grid" data-bg-color="#f0eeee">
-										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_11.png" alt="image_not_found">
-											<ul class="product_action_btns ul_li_center clearfix">
-												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
-												<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-											</ul>
-										</div>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
-											</ul>
-											<h3 class="item_title">
-												<a href="#!">Car Tyer</a>
-											</h3>
-											<span class="price_text"><strong>$499.90</strong> <del>$698.90</del></span>
-										</div>
-										<ul class="product_label ul_li text-uppercase clearfix">
-											<li class="bg_carparts_red">New</li>
-											<li class="bg_carparts_red">Sale</li>
-										</ul>
-									</div>
-								</div> #}
 								</div>
 							</div>
 

@@ -1,6 +1,6 @@
 index:
     path: /
     controller: App\Controller\HomeController::index
-index2:
+bien:
     path: /bien
     controller: App\Controller\BienController::index

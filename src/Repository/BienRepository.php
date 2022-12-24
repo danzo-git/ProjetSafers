@@ -52,12 +52,12 @@ class BienRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('b')
            // ->andWhere('b.exampleField = :val')
-           ->select('b.id as value')
+           ->select('b.surface,b.titre,b.image,b.id ')
             // ->setParameter('val', $value)
             // ->orderBy('b.id', 'ASC')
-            ->setMaxResults(2)
+            ->setMaxResults(5)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
     }
 
 //    public function findOneBySomeField($value): ?Bien
