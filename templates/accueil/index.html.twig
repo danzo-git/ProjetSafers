@@ -284,7 +284,7 @@
 						<h3 class="title_text mb_30 text-uppercase"><i class="fas fa-user mr-2"></i> User Info</h3>
 						<div class="profile_info clearfix">
 							<div class="user_thumbnail">
-								<img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
+								<img src="images/17.03.017.jpg" alt="thumbnail_not_found">
 							</div>
 							<div class="user_content">
 								<h4 class="user_name">Jone Doe</h4>
@@ -319,34 +319,7 @@
 							</div>
 						</div>
 					</div>
-					<form action="#">
-						<div class="carparts_search">
-							<ul class="ul_li_center clearfix">
-								<li>
-									<div class="option_select">
-										<select>
-											<option data-display="Make">Select A Option</option>
-											<option value="1">Some option</option>
-											<option value="2">Another option</option>
-											<option value="3" disabled>A disabled option</option>
-											<option value="4">Potato</option>
-										</select>
-									</div>
-								</li>
-								<li>
-									<div class="form_item">
-										<input type="text" name="model" placeholder="model">
-									</div>
-								</li>
-								<li>
-									<div class="form_item">
-										<input type="text" name="year" placeholder="year">
-									</div>
-								</li>
-								<li><button type="submit" class="submit_btn bg_carparts_red">Search</button></li>
-							</ul>
-						</div>
-					</form>
+					
 				</div>
 			</section>
 			<!-- banner_section - end
@@ -590,10 +563,12 @@
 						<div class="tab-content mb_50 clearfix">
 							<div id="service_tab" class="tab-pane active">
 								<div class="row justify-content-center">
+								{% for safer in safers %}
 									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+									
 									<div class="carparts_product_grid" data-bg-color="#f0eeee">
 										<div class="item_image" data-bg-color="#f8f8f8">
-											<img src="assets/images/shop/car_parts/img_01.png" alt="image_not_found">
+											<img src="uploads/images/{{safer.image}}" alt="image_not_found">
 											<ul class="product_action_btns ul_li_center clearfix">
 												<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
 												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></i></a></li>
@@ -602,25 +577,28 @@
 										</div>
 										<div class="item_content">
 											<ul class="rating_star ul_li clearfix">
+												{# <li><i class="fas fa-star"></i></li>
 												<li><i class="fas fa-star"></i></li>
 												<li><i class="fas fa-star"></i></li>
 												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fal fa-star"></i></li>
+												<li><i class="fal fa-star"></i></li> #}
+												{{safer.status == 1 ?"A louer"  : "pas a louer" }}
 											</ul>
 											<h3 class="item_title">
-												<a href="#!">Shock Absorber</a>
+												<a href="#!">{{safer.titre}}</a>
 											</h3>
-											<span class="price_text"><strong>$29.90</strong> <del>$48.90</del></span>
+											<span class="price_text"><strong>{{safer.surface}} m²</strong> <del>$48.90</del></span>
 										</div>
 										<ul class="product_label ul_li text-uppercase clearfix">
 											<li class="bg_carparts_red">New</li>
 											<li class="bg_carparts_red">Sale</li>
 										</ul>
 									</div>
+									
 								</div>
+								{% endfor %}
 
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 									<div class="carparts_product_grid" data-bg-color="#f0eeee">
 										<div class="item_image" data-bg-color="#f8f8f8">
 											<img src="assets/images/shop/car_parts/img_02.png" alt="image_not_found">
@@ -647,9 +625,9 @@
 											<li class="bg_danger">Hot</li>
 										</ul>
 									</div>
-								</div>
+								</div> #}
 
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 									<div class="carparts_product_grid" data-bg-color="#f0eeee">
 										<div class="item_image" data-bg-color="#f8f8f8">
 											<img src="assets/images/shop/car_parts/img_03.png" alt="image_not_found">
@@ -847,9 +825,9 @@
 											<li class="bg_carparts_red">Sale</li>
 										</ul>
 									</div>
-								</div>
+								</div> #}
 
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+								{# <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 									<div class="carparts_product_grid" data-bg-color="#f0eeee">
 										<div class="item_image" data-bg-color="#f8f8f8">
 											<img src="assets/images/shop/car_parts/img_09.png" alt="image_not_found">
@@ -932,7 +910,7 @@
 											<li class="bg_carparts_red">Sale</li>
 										</ul>
 									</div>
-								</div>
+								</div> #}
 								</div>
 							</div>
 
@@ -2004,50 +1982,7 @@
 			================================================== -->
 
 
-			<!-- interior_carparts_section - start
-			================================================== -->
-			<section class="interior_carparts_section sec_ptb_100 clearfix" data-background="assets/images/backgrounds/bg_02.jpg">
-				<div class="container">
-					<div class="row mt__30">
-
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-							<div class="Interior_carparts">
-								<img src="assets/images/category/car_parts/img_06.jpg" alt="image_not_found">
-								<div class="item_content">
-									<span class="sub_title">Customize, Modify</span>
-									<h3 class="item_title text-white">Interior Parts</h3>
-									<a class="custom_btn btn_sm bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-							<div class="Interior_carparts">
-								<img src="assets/images/category/car_parts/img_07.jpg" alt="image_not_found">
-								<div class="item_content">
-									<span class="sub_title">Customize, Modify</span>
-									<h3 class="item_title text-white">Interior Parts</h3>
-									<a class="custom_btn btn_sm bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-							<div class="Interior_carparts">
-								<img src="assets/images/category/car_parts/img_08.jpg" alt="image_not_found">
-								<div class="item_content">
-									<span class="sub_title">Customize, Modify</span>
-									<h3 class="item_title text-white">Interior Parts</h3>
-									<a class="custom_btn btn_sm bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</section>
-			<!-- interior_carparts_section - end
-			================================================== -->
+		
 
 
 			<!-- product_section - start

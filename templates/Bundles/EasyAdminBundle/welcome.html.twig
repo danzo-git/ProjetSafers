@@ -1,0 +1,31 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title 'Welcome to SaferAdmin' %}
+
+{% block main %}
+   
+ <div class="container d-flex">
+        <div class="card text-bg-warning mb-3 m-1" >
+           
+            <div class="card-body">
+                <h5 class="card-title">Biens</h5>
+               <h3> {{ countAllBien['value'] }}</h3>
+                {# <p class="card-text">Biens {{countAllBien["value"]}}.</p> #}
+            </div>
+        </div>
+    <div class="card text-bg-info mb-3 m-1" >
+                <div class="card-body">
+            <h5 class="card-title">Categories</h5>
+            <p class="card-text h3">{{countAllCategorie['value']}}</p>
+        </div>
+        </div>
+ </div>
+     
+
+    {# <pre>{{ dashboard_controller_filepath }}</pre> #}
+
+    
+
+    
+{% endblock %}

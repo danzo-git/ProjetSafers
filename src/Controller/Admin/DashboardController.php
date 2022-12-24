@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Bien;
 use App\Entity\Categorie;
+use App\Repository\BienRepository;
+use App\Repository\CategorieRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -13,14 +15,29 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+      protected   $bienRepository;
+      protected  $categorieRepository;
+    public function __construct(BienRepository $bienRepository,CategorieRepository $categorieRepository){
+        $this-> bienRepository=$bienRepository;
+        $this->categorieRepository=$categorieRepository;
+    }
     /**
      * @Route("/admin", name="admin")
      */
+   
+    
     public function index(): Response
     {
-        return parent::index();
+        // return parent::index();
+        return $this->render('Bundles/EasyAdminBundle/welcome.html.twig',
+    [
+        'countAllBien'=>$this->bienRepository->countAllBien(),
+        'countAllCategorie'=>$this->categorieRepository->countAllCategorie(),
+    ]);
+
         
     }
+    
 
     public function configureDashboard(): Dashboard
     {

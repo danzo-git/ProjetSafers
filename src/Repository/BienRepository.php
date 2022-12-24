@@ -39,20 +39,26 @@ class BienRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllBien(){
+        $queryBuilder=$this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Bien[] Returns an array of Bien objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   public function find5Biens(): array
+    {
+        return $this->createQueryBuilder('b')
+           // ->andWhere('b.exampleField = :val')
+           ->select('b.id as value')
+            // ->setParameter('val', $value)
+            // ->orderBy('b.id', 'ASC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
 //    public function findOneBySomeField($value): ?Bien
 //    {
