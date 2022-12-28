@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 use App\Entity\Bien;
+use App\Entity\Categorie;
+use App\Entity\Favoris;
 Use App\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,6 +30,7 @@ class BienController extends AbstractController
         $params = $request->query->all(); 
        // $string = implode(', ', $params);
         // dd($string);
+        
         $safers = $this->getDoctrine()->getRepository(Bien::class)->findBy(['id'=>$params[1]]);
         $form = $this->createForm(UserType::class);
     $form->handleRequest($request);
@@ -36,8 +39,15 @@ class BienController extends AbstractController
         $id = $entity->getId();
         // Faites quelque chose avec l'identifiant ici
     }
-    
-    // dd($entity->getPostal());
+
+ 
+ $categories = $this->getDoctrine()->getRepository(Categorie::class)->findBy(['id'=>$entity->getCategorie()->getId()]);
+        
+    foreach ($categories as $categorie) {
+        $idc = $categorie->getId();
+        // Faites quelque chose avec l'identifiant ici
+    }
+   
 
      if ($form->isSubmitted() && $form->isValid()) {
        
@@ -58,10 +68,22 @@ class BienController extends AbstractController
             'titre'=>$entity->getTitre(),
             'disponibilite'=>$entity->isStatus(),
             'ville'=>$entity->getVille(),
-
+            'categorie'=>$categorie->getNom(),
+            'categorie_slug'=>$categorie->getSlug(),
         ],
         
     );
+     $em = $this->getDoctrine()->getManager();
+
+     // Création de l'entité Product
+     $favoris = new Favoris();
+     $favoris->setNomClient($data['name']);
+     $favoris->setEmail($data['email']);
+     $favoris->setSafer($id);
+    
+    // // Enregistrement de l'entité en base de données
+     $em->persist($favoris);
+     $em->flush();
         return $this->render('bien/index.html.twig', [
             
             'controller_name' => 'BienController',
@@ -71,6 +93,7 @@ class BienController extends AbstractController
         ]);
        
     }
+  
     return $this->render('bien/index.html.twig', [
             
         'controller_name' => 'BienController',

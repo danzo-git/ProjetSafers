@@ -10,19 +10,17 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+           vous etes connctés en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    {# <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    
+    <label for="inputPassword">Mot de passe</label> #}
+    
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+   
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -35,8 +33,196 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+
+    <!------------------>
+<div class="login-box">
+<h2> Login <h2/>
+  <form>
+    <div class="user-box">
+      <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+      <label>Email</label>
+    </div>
+    <div class="user-box">   
+     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+      <label>Mot de passe</label>
+    </div>
+     <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    <a href="https://www.instagram.com/henrique_bertulino_oficial/">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <button class="btn btn-lg btn-primary" type="submit">
+       connexion
     </button>
+    </a>
+  </form>
+</div>
+
+<div class="imagem">
+  {# <img src="https://yt3.ggpht.com/-lc5nBU7wcGp-ryR-B-5dwxyM_7vwExZWmoXzbBt0WYYs9XjBUyhw_9u0wEKFrd-fxoe-GI7FA=s90-c-k-c0x00ffffff-no-rj" #}
+    <!------------------>
+
+   
 </form>
+<style>
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#000032, #000000);
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 36);
+  box-sizing: border-box;
+  box-shadow: 0 30px 25px rgba(0,0,0,.6);
+  border-radius: 40px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #98765;
+  color: #ffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ffff,
+              0 4 100px #ffff;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #789e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffff);
+  animation: btn-anim3 4s linear infinite;
+  animation-delay: .1s
+}
+
+@keyframes btn-anim3 {
+  90% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #9879f4);
+  animation: btn-anim4 4s linear infinite;
+  animation-delay: .200s
+}
+
+@keyframes btn-anim4 {
+  9% {
+    bottom: -100%;
+  }
+  40%,100% {
+    bottom: 100%;
+  }
+}
+
+
+</style>
 {% endblock %}

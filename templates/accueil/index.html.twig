@@ -305,7 +305,7 @@
 							<div class="banner_content text-center">
 								<p>Customize, Modify, Upgrade, Repair, Replace</p>
 								<h1 class="text-white">
-									SEARCH MATCHING YOUR VEHICLE PARTS
+									vente de Safer
 								</h1>
 							</div>
 						</div>
@@ -384,8 +384,8 @@
 			<section class="category_section sec_ptb_100 clearfix">
 			
 				<div class="container">
-				{# {% for find5Bien in find5Biens %}
-					{{  find5Bien.titre }}
+				{# {% for find2Bien in find2Biens %}
+					{{  find2Bien.titre }}
 					{% endfor %} #}
 					
 					<div class="carparts_category_carousel clearfix">
@@ -541,20 +541,7 @@
 					</div>
 
 					<div class="tab_wrap position-relative">
-						<ul class="carparts_block_tabs nav ul_li_block clearfix" role="tablist">
-							<li>
-								<a class="active" data-toggle="tab" href="#service_tab">Service Kit</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#lighting1_tab">Lighting</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#trending_tab">Trending</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#lighting2_tab">Lighting</a>
-							</li>
-						</ul>
+						
 
 						<div class="tab-content mb_50 clearfix">
 							<div id="service_tab" class="tab-pane active">
@@ -2353,10 +2340,10 @@
 			<section class="interior_carparts_section sec_ptb_100 clearfix">
 				<div class="container">
 					<div class="row justify-content-center">
-						{# {% for find2Bien in find2Biens %} #}
+						{% for find2Bien in find2Biens %} 
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="Interior_carparts">
-								{# <img src="uploads/images/{{find2Bien.image}}" alt="image_not_found"> #}
+								<img src="uploads/images/{{find2Bien.image}}" alt="image_not_found"> 
 								<div class="item_content">
 									<span class="sub_title">Customize, Modify</span>
 									<h3 class="item_title text-white mb-0">Interior Parts</h3>
@@ -2370,23 +2357,8 @@
 								</div>
 							</div>
 						</div>
-					{# {% endfor %} #}
-						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-							<div class="Interior_carparts">
-								<img src="assets/images/category/car_parts/img_10.jpg" alt="image_not_found">
-								<div class="item_content">
-									<span class="sub_title">Customize, Modify</span>
-									<h3 class="item_title text-white mb-0">Interior Parts</h3>
-									<ul class="parts_category_list ul_li_block text-white clearfix">
-										<li><a href="#!">Wheel Hubs</a></li>
-										<li><a href="#!">Air Suspension</a></li>
-										<li><a href="#!">Ball Joints</a></li>
-										<li><a href="#!">Brake Discs</a></li>
-									</ul>
-									<a class="icon_btn btn_sm bg_carparts_red text-uppercase" href="#!"><i class="fal fa-arrow-right"></i></a>
-								</div>
-							</div>
-						</div>
+					 {% endfor %}
+						
 
 					</div>
 				</div>
@@ -2411,7 +2383,7 @@
 
 			<!-- product_section - start
 			================================================== -->
-			>
+			
 			<!-- product_section - end
 			================================================== -->
 

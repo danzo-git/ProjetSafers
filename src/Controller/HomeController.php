@@ -26,6 +26,7 @@ class HomeController extends AbstractController
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'HomeController',"safers" => $safers,
             "find5Biens"=>$this->BienRepository->find5Biens(),
+            "find2Biens"=>$this->BienRepository->find2Biens(),
         ]);
     }
 }
