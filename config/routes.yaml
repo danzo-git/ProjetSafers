@@ -4,3 +4,6 @@ index:
 bien:
     path: /bien
     controller: App\Controller\BienController::index
+bien_form:
+    path: form
+    controller: App\Controller\BienController::myAction

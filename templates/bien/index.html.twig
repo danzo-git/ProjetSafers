@@ -330,7 +330,7 @@
 
 							<!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Me l'envoyer par mail
+ <!--a href="{{path("bien",['id' , safer[0].id])}}"--> Me l'envoyer par mail
 </button>
 
 <!-- Modal -->
@@ -342,11 +342,20 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        {{ form(form, {'method': 'GET'}) }}
+      {% block body %} 
+     {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Envoyer</button>
+{{ form_end(form) }}
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+		 {# <button type="submit"  class="btn btn-primary"> #}
+		  {# <a href="{{ path("bien_form",['safer', safer[0].id]) }}"> Enregistrer</button></a>  #}
+		
+   
+       {% endblock %}
       </div>
     </div>
   </div>

@@ -52,10 +52,28 @@ class BienRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('b')
            // ->andWhere('b.exampleField = :val')
-           ->select('b.surface,b.titre,b.image,b.id ')
+           ->select('b.surface,b.titre,b.image,b.id')
+           
             // ->setParameter('val', $value)
-            // ->orderBy('b.id', 'ASC')
+           
+            //->from('Bien','b')
+            // ->orderBy('b.id', 'rand()')
             ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function find2Biens(): array
+    {
+        return $this->createQueryBuilder('b')
+           // ->andWhere('b.exampleField = :val')
+           ->select('b.surface,b.titre,b.image,b.id')
+           
+            // ->setParameter('val', $value)
+           
+            //->from('Bien','b')
+            // ->orderBy('b.id', 'rand()')
+            ->setMaxResults(2)
             ->getQuery()
             ->getResult();
     }
