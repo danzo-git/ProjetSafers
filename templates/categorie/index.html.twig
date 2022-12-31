@@ -14,12 +14,16 @@
 							<div class="item_image"  >
 								<img src="/uploads/images/{{categorie.image}}" alt="image_not_found">
 								<ul class="product_action_btns ul_li_center clearfix">
-									<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
-									<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
-									<li>
-										
-									</li>
-								</ul>
+																{% if categorie.id in app.session |keys %}
+																	<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
+																	{% else %}
+																<li><a class="tooltips" data-placement="top" title="Add To Cart" href="{{path('wish',{"id" :categorie.id})}}"><i class='fal fa-heart' style='color:#f33939'></i></a></li>
+
+																{% endif %}
+												
+												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></a></i></li>
+												{# <li><a class="tooltips" data-placement="top" title="Quick View" href="{{path('index',{'id':safer.id})}}" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li> #}
+											</ul>
 							</div>
 							<div class="item_content">
 								<h3 class="item_title"><a href="{{path('bien',['id',categorie.id])}}">{{categorie.titre}}</a></h3>
