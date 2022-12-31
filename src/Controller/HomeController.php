@@ -93,6 +93,7 @@ class HomeController extends AbstractController
         $categories = $query->getResult();
         //  dd($categories[0]);
         // $safers = $this->getDoctrine()->getRepository(Bien::class)->findBy(['id'=>$categorie[0]->getId()]);
+        $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
         return $this->render('categorie/index.html.twig',[
            'controller_name'=> "HomeController",
              'categories'=>$categories ,
