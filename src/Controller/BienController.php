@@ -8,12 +8,13 @@ Use App\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 // use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Config\Framework\RequestConfig;
+use Doctrine\ORM\EntityManager;
 use App\Form\UserType; 
 class BienController extends AbstractController
 {
@@ -25,7 +26,7 @@ class BienController extends AbstractController
     // protected $mailer;
     public function index( Request $request,Mailer $mailer): Response
     {
-       
+        $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
         $form = $this->createForm(UserType::class);
         $params = $request->query->all(); 
        // $string = implode(', ', $params);
@@ -90,16 +91,18 @@ class BienController extends AbstractController
             //'mailer'=>  $mailer->sendEmail(),
             'safer'=>$safers,
             'form' => $form->createView(),
+            'categorie'=>$categorie,
         ]);
        
     }
-  
+    $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
     return $this->render('bien/index.html.twig', [
             
         'controller_name' => 'BienController',
         //'mailer'=>  $mailer->sendEmail(),
         'safer'=>$safers,
         'form' => $form->createView(),
+        'categorie'=>$categorie,
     ]);
 
     }

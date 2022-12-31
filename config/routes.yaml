@@ -4,6 +4,15 @@ index:
 bien:
     path: /bien
     controller: App\Controller\BienController::index
-bien_form:
-    path: form
-    controller: App\Controller\BienController::myAction
+
+wish:
+    path: wish/{id}
+    controller: App\Controller\HomeController::addAction
+
+categorie:
+    path: categorie/{id}
+    controller: App\HomeController::categorie    
+
+contact:
+    path: contact
+    controller: ContactController::index

@@ -1,0 +1,64 @@
+{% extends 'base/header.html.twig' %}
+{% block content %}
+
+
+
+
+{# 
+{% for categorie in categories %}
+  
+  <img src="/uploads/images/{{categorie.image}}"/>
+
+{% endfor %} #}
+<html>
+    <head>
+  
+    </head>
+
+    <body>
+      <div class="furniture_product_group row mt-5">
+      {% for categorie in categories %}
+						<div class="furniture_product_grid col-lg-3 col-md-4 col-sm-6 col-xs-12">
+							<div class="top_bar clearfix">
+								
+							
+							</div>
+							<div class="item_image">
+								<img src="/uploads/images/{{categorie.image}}" alt="image_not_found">
+								<ul class="product_action_btns ul_li_center clearfix">
+									<li><a class="tooltips" data-placement="top" title="Quick View" href="#!" data-toggle="modal" data-target="#quickview_modal"><i class="fal fa-search"></i></a></li>
+									<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#!"><i class="fal fa-heart"></i></a></li>
+									<li>
+										<a class="addtocart_btn tooltips" data-placement="top" title="Add To Cart" href="#!">
+											<i class="fal fa-shopping-basket"></i> Buy
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="item_content">
+								<h3 class="item_title"><a href="#!">Bathroom lighting</a></h3>
+								<span class="item_price"><strong> $100.00</strong> <del> $150.00</del></span>
+							</div>
+						</div>
+        {% endfor %}
+					
+
+					
+
+						
+
+						
+
+						
+					
+    </body>
+</html>
+
+
+						
+					
+
+						
+					</div>
+
+{% endblock %}
