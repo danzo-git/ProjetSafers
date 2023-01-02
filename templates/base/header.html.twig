@@ -82,7 +82,7 @@
 
 					<ul class="cart_items_list ul_li_block mb_30 clearfix">
 					  {# {{ dump(session) }} #}
-					  
+					
 					 {% for sessio in app.session.get('cart', []) %} 
 					
 						<li>
@@ -93,7 +93,8 @@
 								<a href="{{path("bien",['id' , sessio.getId])}}"><h4 class="item_title">{{sessio.getTitre}}</h4></a>
 							
 							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+							<a href="{{path('wish',{"id" :sessio.getId})}}"> <button type="button" class="remove_btn">
+							<i class="fal fa-trash-alt"></i></button><a/>
 						</li>
 						 {% endfor %} 
 						
@@ -147,14 +148,22 @@
 												
 											</ul>
 										</li>
-										<li><a href="#!">About us</a></li>
+										
 										<li><a href="{{path('contact')}}">Contact us</a></li>
 									</ul>
 								</nav>
-
+								
 							</div>
+							
+							
 						</div>
 					</div>
+					
+						  {% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success offset-3">
+	
+	<h1>{{ message }}</h1></div>
+{% endfor %}
 
 					<div id="search_body_collapse" class="search_body_collapse collapse">
 						<div class="search_body">

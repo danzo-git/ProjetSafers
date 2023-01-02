@@ -430,10 +430,11 @@
 											<img src="uploads/images/{{safer.image}}" alt="image_not_found">
 											<ul class="product_action_btns ul_li_center clearfix">
 																{% if safer.id in session |keys %}
-																	<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
+																
+																	<li><a class="tooltips" data-placement="top" title="Add To Wishlist" href="{{path('wish',{"id" :safer.id})}}"><i class="fal fa-heart"></i></a></li>
 																	{% else %}
 																<li><a class="tooltips" data-placement="top" title="Add To Cart" href="{{path('wish',{"id" :safer.id})}}"><i class='fal fa-heart' style='color:#f33939'></i></a></li>
-
+															{# {{  dump(session['key','value']) }}  #}
 																{% endif %}
 												
 												<li><a class="tooltips" data-placement="top" title="Add To Cart" href="#!"><i class="fal fa-shopping-basket"></a></i></li>
@@ -443,7 +444,7 @@
 										<div class="item_content">
 											<ul class="rating_star ul_li clearfix">
 											
-												{{safer.status == 1 ?"A louer"  : "pas a louer" }}
+												{{safer.status == 1 ?"A louer"  : "en vente" }}
 											</ul>
 											<h3 class="item_title">
 												<a href="{{path("bien",['id' , safer.id])}}">{{safer.titre}}</a>
@@ -1634,7 +1635,7 @@
 {% endfor %}	
 								
 
-								
+								{# {{dump(articles)}} #}
 							</div>
 						</div>
 

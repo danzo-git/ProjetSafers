@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Doctrine\ORM\QueryBuilder;
 class HomeController extends AbstractController
 {
     /**
@@ -24,19 +26,9 @@ class HomeController extends AbstractController
     }
     public function index(Request $request): Response
     {
-        // $form = $this->createForm(SearchType::class);
-        // $form->handleRequest($request);
+        
 
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $search = $form->getData()['search'];
 
-        //     $results = $this->getDoctrine()
-        //         ->getRepository(Bien::class)
-        //         ->findBySearch($search);
-        //         return $this->render('search/results.html.twig', [
-        //             'results' => $results,
-        //         ]);
-        // }
         $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
         
         $cart = $this->session->get('cart');
@@ -48,7 +40,8 @@ class HomeController extends AbstractController
             "find2Biens"=> $this->BienRepository->find2Biens(),
             'session'=>$cart,
             'categorie'=>$categorie,
-            
+           
+            // 'biens'=>$biens,
             // 'form' => $form->createView(),
         ]);
     }
@@ -62,21 +55,44 @@ class HomeController extends AbstractController
         $safers = $this->getDoctrine()->getRepository(Bien::class)->findBy(['id'=>$id]);
          
         $cart = $this->session->get('cart', []);
-        
-        if (isset($cart[$id])) {
+        // if (array_key_exists($id ,$cart)){
+           
+        // }
+       
+        // Si le bien existe déjà dans le panier, on le supprime
+    if (isset($cart[$id])) {
+        unset($cart[$id]);
+       $message= $this->addFlash('success', 'Le bien a été supprimé des favoris');
+    }
+     else {
             $cart[$id] = $safers[0];
-        } else {
-            $cart[$id] = $safers[0];
+            $message=$this->addFlash('success', 'Le bien a été mis en favoris');
         }
        $this->session->set('cart', $cart); 
        
       
-       
+      
+
       return $this->redirectToRoute('index',[
         'session'=>$cart,
+        'message'=>$message,
       ]);
         
     }
+
+    /**
+     * @Route("/remove/{id}", name="app_home")
+     */
+    // public function remove($id)
+    // {
+    //     $cart = $this->get('session')->remove($id);
+    //     $message = $this->addFlash('success', 'Le bien a été supprimé des favoris');
+    
+    //     return $this->redirectToRoute('index', [
+    //         'session' => $cart,
+    //         'message' => $message,
+    //     ]);
+    // }
 /**
      * @Route("/categorie/{id}", name="app_home")
      */
@@ -101,6 +117,8 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+   
    
 
        

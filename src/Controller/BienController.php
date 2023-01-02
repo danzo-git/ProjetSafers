@@ -76,7 +76,7 @@ class BienController extends AbstractController
     );
      $em = $this->getDoctrine()->getManager();
 
-     // Création de l'entité Product
+     // Création de l'entité favoris
      $favoris = new Favoris();
      $favoris->setNomClient($data['name']);
      $favoris->setEmail($data['email']);
@@ -85,6 +85,8 @@ class BienController extends AbstractController
     // // Enregistrement de l'entité en base de données
      $em->persist($favoris);
      $em->flush();
+     $message=$this->addFlash('success', 'Le mail a ete envoyé avec success');
+
         return $this->render('bien/index.html.twig', [
             
             'controller_name' => 'BienController',
@@ -92,6 +94,7 @@ class BienController extends AbstractController
             'safer'=>$safers,
             'form' => $form->createView(),
             'categorie'=>$categorie,
+            'message'=>$message,
         ]);
        
     }
@@ -103,6 +106,7 @@ class BienController extends AbstractController
         'safer'=>$safers,
         'form' => $form->createView(),
         'categorie'=>$categorie,
+        
     ]);
 
     }

@@ -9,10 +9,19 @@ wish:
     path: wish/{id}
     controller: App\Controller\HomeController::addAction
 
+remove:
+    path: remove/{id}
+    controller: App\Controller\HomeController::remove
+
+
 categorie:
     path: categorie/{id}
-    controller: App\HomeController::categorie    
+    controller: App\HomeController::categorie
+
+ContactMessage: 
+    path: message
+    controller: App\Controller\ContactController::message
 
 contact:
     path: contact
-    controller: ContactController::index
+    controller: App\Controller\ContactController::index

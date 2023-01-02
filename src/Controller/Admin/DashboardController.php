@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Bien;
 use App\Entity\Categorie;
 use App\Entity\Favoris;
+use App\Entity\Contact;
 use App\Repository\BienRepository;
 use App\Repository\CategorieRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -52,5 +53,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Biens', 'fas fa-list', Bien::class);
         yield MenuItem::linkToCrud('Category', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Favoris', 'fas fa-list', Favoris::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-list', Contact::class);
     }
 }

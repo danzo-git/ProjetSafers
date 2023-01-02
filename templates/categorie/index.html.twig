@@ -27,7 +27,7 @@
 							</div>
 							<div class="item_content">
 								<h3 class="item_title"><a href="{{path('bien',['id',categorie.id])}}">{{categorie.titre}}</a></h3>
-								<span class="item_price"><strong> {{categorie.surface}} m²</strong> <u> {{categorie.status == 1?"a louer" : "pas a louer"}}</u></span>
+								<span class="item_price"><strong> {{categorie.surface}} m²</strong> <u> {{categorie.status == 1?"a louer" : "en vente"}}</u></span>
 							</div>
 						</div>
         {% endfor %}

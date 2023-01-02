@@ -25,137 +25,14 @@
 				<li class="item">{{surface}}</li>
 				<li class="item">{{ville}}</li>
 				<li class="item">{{code_ville}} </li>
-                <li class="item">{{disponibilite}}</li>
+                <li class="item">{{disponibilite == 1  ? "a louer": "en vente"}}</li>
+				 <li class="item">{{categorie}}</li>
+				  <li class="item">{{categorie_slug}}</li>
+
 			</ul>
 			
-		</div>
-	
-	</section>
-</body>
-</html>
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="programmingfans" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-<style>
-    /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Moon+Dance&display=swap"); */
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	height: 100vh;
-	display: grid;
-	place-content: center;
-	background-color: #ebebeb;
-	font-family: "Inter", sans-serif;
-}
-.flex-column {
-	display: flex;
-	flex-direction: column;
-	gap: 4rem;
-}
-.cards {
-	max-width: 50rem;
-	height: inherit;
-	margin: auto;
-	padding: 1rem 2rem;
-}
-.card {
-	width: 24rem;
-	padding: 2rem 1rem;
-	background-color: #fdf6c9;
-	position: relative;
-}
-.card::before {
-	position: absolute;
-	content: "";
-	width: 16rem;
-	height: 0.625rem;
-	top: -0.625rem;
-	left: 3.5rem;
-	background-color: #ebebeb;
-}
-.card::after {
-	position: absolute;
-	content: "";
-	width: 16rem;
-	height: 0.625rem;
-	bottom: -0.625rem;
-	left: 3.5rem;
-	background-color: #ebebeb;
-}
-.card-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1rem;
-	font-family: "Moon Dance", cursive;
-}
-.card-header h2 {
-	color: #24211c;
-	word-spacing: -3px;
-	font-size: 2rem;
-}
-.card-header h2 span {
-	display: inline-block;
-	margin-right: 0.25rem;
-}
-.card-header #green {
-	color: #96bc8d;
-}
-.card-header #blue {
-	color: #5f96cd;
-}
-.card-header strong {
-	font-size: 2.25rem;
-}
-.card-one {
-	border: 0.625rem solid #96bc8d;
-}
-.card-two {
-	border: 0.625rem solid #5f96cd;
-}
-.list {
-	padding: 0 4rem;
-	list-style-type: disc;
-	margin-bottom: 1rem;
-}
-.list .item {
-	color: #40361e;
-	font-size: 0.825rem;
-	font-weight: 600;
-	padding-bottom: 0.5rem;
-}
-.list .item::marker {
-	font-size: 1.125rem;
-	color: #40361e;
-}
-.cta-btn {
-	text-align: center;
-	display: block;
-	width: calc(100% - 20%);
-	padding: 0.75rem;
-	margin-left: 2.5rem;
-	color: #fff;
-	font-size: 1.125rem;
-	font-weight: 600;
-	border: 0;
-	outline: 0.125rem solid;
-	outline-offset: 0.125rem;
-	cursor: pointer;
-}
-.cta-btn.btn-green {
-	background-color: #96bc8d;
-	outline-color: #96bc8d;
-}
-.cta-btn.btn-blue {
-	background-color: #5f96cd;
-	outline-color: #5f96cd;
-}
-
-</style>
-<!-- BUY ME A COFFEE AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+			</body>
+		<!-- BUY ME A COFFEE AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
 
  
  

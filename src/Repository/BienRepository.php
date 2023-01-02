@@ -55,9 +55,9 @@ class BienRepository extends ServiceEntityRepository
            ->select('b.surface,b.titre,b.image,b.id')
            
             // ->setParameter('val', $value)
-           
+           // ->addSelect('RAND() as HIDDEN rand')
             //->from('Bien','b')
-            // ->orderBy('b.id', 'rand()')
+            // ->orderBy( 'rand')
             ->setMaxResults(5)
             ->getQuery()
             ->getResult();
