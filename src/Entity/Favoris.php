@@ -32,6 +32,21 @@ class Favoris
      */
     private $safer;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre_safer;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +84,42 @@ class Favoris
     public function setSafer(int $safer): self
     {
         $this->safer = $safer;
+
+        return $this;
+    }
+
+    public function getDate(): ?string
+    {
+        return $this->date;
+    }
+
+    public function setDate(string $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTitreSafer(): ?string
+    {
+        return $this->titre_safer;
+    }
+
+    public function setTitreSafer(string $titre_safer): self
+    {
+        $this->titre_safer = $titre_safer;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

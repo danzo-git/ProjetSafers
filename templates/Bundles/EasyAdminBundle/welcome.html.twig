@@ -20,7 +20,23 @@
             <p class="card-text h3">{{countAllCategorie['value']}}</p>
         </div>
         </div>
+         <div class="card text-bg-info mb-3 m-1" >
+                <div class="card-body">
+            <h5 class="card-title">Categories la plus prisé</h5>
+            {# {{ dump(findMostFrequentValue) }} #}
+            <p class="card-text h3">{{findMostFrequentValue['value'] }} ({{findMostFrequentValue['count']}})</p>
+        </div>
+       
+        </div>
+           <div class="card text-bg-info mb-3 m-1" >
+                <div class="card-body">
+            <h5 class="card-title">bien le plus prisé</h5>
+            {# {{ dump(findMostFrequentValue) }} #}
+            <p class="card-text h3">{{findMostFrequentbien['value'] }} ({{findMostFrequentbien['count']}})</p>
+        </div>
  </div>
+ </div>
+ 
      
 
     {# <pre>{{ dashboard_controller_filepath }}</pre> #}

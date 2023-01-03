@@ -16,6 +16,7 @@ use Symfony\Component\Mime\Email;
 use Symfony\Config\Framework\RequestConfig;
 use Doctrine\ORM\EntityManager;
 use App\Form\UserType; 
+use DateTime;
 class BienController extends AbstractController
 {
     
@@ -38,6 +39,7 @@ class BienController extends AbstractController
    
     foreach ($safers as $entity) {
         $id = $entity->getId();
+        // dd($entity);
         // Faites quelque chose avec l'identifiant ici
     }
 
@@ -71,16 +73,22 @@ class BienController extends AbstractController
             'ville'=>$entity->getVille(),
             'categorie'=>$categorie->getNom(),
             'categorie_slug'=>$categorie->getSlug(),
+            'descriptif'=>$entity->getDescriptif(),
         ],
         
     );
      $em = $this->getDoctrine()->getManager();
 
      // Création de l'entité favoris
+     $date = new DateTime();
+     $dateFormatee = $date->format('d/m/Y');
      $favoris = new Favoris();
      $favoris->setNomClient($data['name']);
      $favoris->setEmail($data['email']);
      $favoris->setSafer($id);
+     $favoris->setTitreSafer($entity->getTitre());
+     $favoris->setCategorie($categorie->getNom());
+    $favoris->setDate($dateFormatee);
     
     // // Enregistrement de l'entité en base de données
      $em->persist($favoris);

@@ -78,6 +78,8 @@ class BienRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+   
+
     // public function findBiens(): array
     // {
     //     return $this->createQueryBuilder('b')

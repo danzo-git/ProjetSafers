@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Repository;
-
+use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Favoris;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Doctrine\ORM\Query\ResultSetMapping;
 /**
  * @extends ServiceEntityRepository<Favoris>
  *
@@ -54,6 +54,42 @@ class FavorisRepository extends ServiceEntityRepository
 //        ;
 //    }
 
+public function findMostFrequentValue(string $column="categorie")
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('value', 'value');
+        $rsm->addScalarResult('count', 'count');
+
+        $query = $this->_em->createNativeQuery(
+            'SELECT '.$column.' as value, COUNT(*) as count FROM favoris GROUP BY '.$column.' ORDER BY count DESC LIMIT 1',
+            $rsm
+        );
+
+        return $query->getOneOrNullResult();
+    }
+
+
+
+
+
+    public function findMostFrequentBien(string $column="titre_safer")
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('value', 'value');
+        $rsm->addScalarResult('count', 'count');
+
+        $query = $this->_em->createNativeQuery(
+            'SELECT '.$column.' as value, COUNT(*) as count FROM favoris GROUP BY '.$column.' ORDER BY count DESC LIMIT 1',
+            $rsm
+        );
+
+        return $query->getOneOrNullResult();
+    }
+
+}
+
+
+
 //    public function findOneBySomeField($value): ?Favoris
 //    {
 //        return $this->createQueryBuilder('f')
@@ -62,5 +98,4 @@ class FavorisRepository extends ServiceEntityRepository
 //            ->getQuery()
 //            ->getOneOrNullResult()
 //        ;
-//    }
-}
+//    }}

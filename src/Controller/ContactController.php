@@ -37,10 +37,10 @@ class ContactController extends AbstractController
             $contact->setDate( $dateFormatee);
             $em->persist($contact);
             $em->flush();
-        
+            $message=$this->addFlash('success', 'Le message a ete envoyé avec success');
             // Traitez les données du formulaire ici...
         }
-        $message=$this->addFlash('success', 'Le message a ete envoyé avec success');
+       $message="";
         $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',

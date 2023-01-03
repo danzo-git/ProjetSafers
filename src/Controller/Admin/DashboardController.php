@@ -8,6 +8,7 @@ use App\Entity\Favoris;
 use App\Entity\Contact;
 use App\Repository\BienRepository;
 use App\Repository\CategorieRepository;
+use App\Repository\FavorisRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -16,12 +17,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
-{
+{protected   $favorisRepository;
       protected   $bienRepository;
       protected  $categorieRepository;
-    public function __construct(BienRepository $bienRepository,CategorieRepository $categorieRepository){
+    public function __construct(FavorisRepository  $favorisRepository,BienRepository $bienRepository,CategorieRepository $categorieRepository){
         $this-> bienRepository=$bienRepository;
         $this->categorieRepository=$categorieRepository;
+        $this->favorisRepository=$favorisRepository;
     }
     /**
      * @Route("/admin", name="admin")
@@ -35,6 +37,8 @@ class DashboardController extends AbstractDashboardController
     [
         'countAllBien'=>$this->bienRepository->countAllBien(),
         'countAllCategorie'=>$this->categorieRepository->countAllCategorie(),
+        'findMostFrequentValue'=>$this->favorisRepository->findMostFrequentValue(),
+        'findMostFrequentbien'=>$this->favorisRepository->findMostFrequentBien()
     ]);
 
         
