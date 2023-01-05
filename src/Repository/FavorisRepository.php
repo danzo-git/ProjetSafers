@@ -54,7 +54,7 @@ class FavorisRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-public function findMostFrequentValue(string $column="categorie")
+public function findMostFrequentValue( $column="categorie")
     {
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('value', 'value');
@@ -64,7 +64,7 @@ public function findMostFrequentValue(string $column="categorie")
             'SELECT '.$column.' as value, COUNT(*) as count FROM favoris GROUP BY '.$column.' ORDER BY count DESC LIMIT 1',
             $rsm
         );
-
+        // dd($query->getResult());
         return $query->getOneOrNullResult();
     }
 
@@ -72,7 +72,7 @@ public function findMostFrequentValue(string $column="categorie")
 
 
 
-    public function findMostFrequentBien(string $column="titre_safer")
+    public function findMostFrequentBien( $column="titre_safer")
     {
         $rsm = new ResultSetMapping();
         $rsm->addScalarResult('value', 'value');

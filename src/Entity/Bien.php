@@ -30,7 +30,7 @@ class Bien
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    public $status;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -132,6 +132,7 @@ class Bien
     {
         return $this->categorie;
     }
+    
 
     public function setCategorie(?Categorie $categorie): self
     {

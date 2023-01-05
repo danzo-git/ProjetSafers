@@ -18,6 +18,10 @@ categorie:
     path: categorie/{id}
     controller: App\HomeController::categorie
 
+envoi:
+    path: envoi/liste
+    controller: App\Controller\EnvoiController::index
+
 ContactMessage: 
     path: message
     controller: App\Controller\ContactController::message
