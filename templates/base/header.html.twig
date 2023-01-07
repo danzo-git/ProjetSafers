@@ -66,12 +66,7 @@
 							<div class="header_top">
 								<div class="row w-100 d-flex align-items-center justify-content-lg-between">
 									<div class="col-lg-6">
-										<form action="#">
-											<div class="form_item search_box">
-												<input type="search" name="search" placeholder="Search">
-												<button type="submit" class="submit_btn bg_carparts_red"><i class="fal fa-search"></i></button>
-											</div>
-										</form>
+										
 									</div>
 
 									
@@ -98,6 +93,11 @@
 						</li>
 						 {% endfor %} 
 						
+						 <li>
+						 {% if  app.session.get('cart', []) != null %} 
+							<a href="{{path('envoi')}}" class="text-center text-color"> Envoi safer</a>
+						 {% endif %} 
+						 </li>
 					</ul>
 
 					
@@ -114,9 +114,11 @@
 											<div class="item_icon">
 												<img src="assets/images/icons/shopping_cart.png" alt="user_icon">
 											</div>
-											<div class="item_content">
+											<div class="item_content d-flex">
 												<span>Mes favoris</span>
-												
+												<span class="offset-6"><button type="button"  data-toggle="modal" data-target="#form">
+    <i class="fal fa-search"></i>
+  </button> </span>
 											</div>
 										</div>
 									</div>
@@ -127,7 +129,7 @@
 								<nav class="main_menu clearfix">
 									<ul class="ul_li clearfix">
 										<li>
-											<a href="/">Home</a>
+											<a href="/">Accueil</a>
 											
 										</li>
 										
@@ -149,7 +151,14 @@
 											</ul>
 										</li>
 										
-										<li><a href="{{path('contact')}}">Contact us</a></li>
+										<li><a href="{{path('contact')}}">Contact </a></li>
+
+									<li>
+									
+									<li><a href="{{path('critere')}}">M'envoyer le mail </a></li>
+									{# <button type="submit" class=""></button> #}
+									
+									</li>
 									</ul>
 								</nav>
 								
@@ -162,7 +171,7 @@
 						  {% for message in app.session.flashbag.get('success') %}
     <div class="alert alert-success offset-3">
 	
-	<h3>{{ message }}</h3></div>
+	<h5>{{ message }}</h5></div>
 {% endfor %}
 
 					<div id="search_body_collapse" class="search_body_collapse collapse">
@@ -170,8 +179,9 @@
 							<div class="container-fluid prl_90">
 								<form action="#">
 									<div class="form_item mb-0">
-										<input type="search" name="search" placeholder="Type here...">
-										<button type="submit"><i class="fal fa-search"></i></button>
+											<div class="container">
+   
+										{# <button type="submit"><i class="fal fa-search"></i></button> #}
 									</div>
 								</form>
 							</div>
@@ -180,11 +190,57 @@
 				</div>
 			</div>
 		</header>
+	
+</div>
+
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          {# <div class="form-group">
+            <label for="email1">Email address</label>
+            <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small>
+          </div>
+          <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password" class="form-control" id="password1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="password1">Confirm Password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Confirm Password">
+          </div> #}
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+
+	    {# {% block body %}  #}
+     {# {{ form_start(form) }}
+   {{ form_row(form.nom) }}
+    {{ form_row(form.prix) }} #}
+    {# {{ form_row(form.description) }} #}
+    {# <button type="submit">Envoyer</button> #}
+{# {{ form_end(form) }} #}
+{# {% endblock %} #}
+    </div>
+  </div>
+</div>
 	{% block content %}
 
 	{% endblock %}
 	
 		<!-- footer_section - start
+
+
 		================================================== -->
 		<footer class="footer_section carparts_footer text-white clearfix">
 			<div class="footer_widget_area sec_ptb_100 clearfix" data-bg-color="#131313">
@@ -210,35 +266,9 @@
 							</div>
 						</div>
 
-						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title text-white">Find it Fast</h3>
-								<ul class="ul_li_block">
-									<li><a href="#!">Laptops & Computers</a></li>
-									<li><a href="#!">Cameras & Photography</a></li>
-									<li><a href="#!">Smart Phones & Tablets</a></li>
-									<li><a href="#!">Video Games & Consoles</a></li>
-									<li><a href="#!">TV & Audio</a></li>
-									<li><a href="#!">Gadgets</a></li>
-									<li><a href="#!">Car Electronic & GPS</a></li>
-								</ul>
-							</div>
-						</div>
+						
 
-						<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title text-white">Customer Care</h3>
-								<ul class="ul_li_block">
-									<li><a href="#!">My Account</a></li>
-									<li><a href="#!">Order Tracking</a></li>
-									<li><a href="#!">Wish List</a></li>
-									<li><a href="#!">Customer Service</a></li>
-									<li><a href="#!">Returns / Exchange</a></li>
-									<li><a href="#!">FAQs</a></li>
-									<li><a href="#!">Product Support</a></li>
-								</ul>
-							</div>
-						</div>
+						
 
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 							<div class="footer_widget footer_instagram">

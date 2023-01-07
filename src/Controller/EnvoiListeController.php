@@ -49,20 +49,20 @@ public function __construct(SessionInterface $session)
              
                 
 
-            //     $mailer->sendEmail(
-            //      "testutoriel@gmail.com",
-            //             $email ,
-            //     "nouveau message"
-            //     ,"info sur la safer",
-            //     "Mail/index.html.twig ",
-            //     [   
-            //         'name'=> $name,
-            //         'email'=>$email,
-            //         'cart'=>$cart,
-            //         'categorie'=>$categorie
-            //     ],
+                $mailer->sendEmail(
+                 "testutoriel@gmail.com",
+                        $email ,
+                "nouveau message"
+                ,"info sur la safer",
+                "Mail/index.html.twig ",
+                [   
+                    'name'=> $name,
+                    'email'=>$email,
+                    'cart'=>$cart,
+                    'categorie'=>$categorie
+                ],
                 
-            //  );
+             );
             $em = $this->getDoctrine()->getManager();
              foreach ($cart as $car) {
                 foreach ($categorie as $categori) {

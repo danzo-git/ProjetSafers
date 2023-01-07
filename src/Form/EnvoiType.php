@@ -11,10 +11,18 @@ class EnvoiType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name',TextType::class,['mapped'=>false])
+            ->add('name',TextType::class,['mapped'=>false],
+            [
+                'attr' => ['class' => 'form-control'],
+            ]
+            )
         ;
         $builder
-            ->add('email',TextType::class,['mapped'=>false])
+            ->add('email',TextType::class,['mapped'=>false],
+            [
+                'attr' => ['class' => 'form-control'],
+            ])
+            
         ;
     }
 

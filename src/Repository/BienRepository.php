@@ -52,7 +52,7 @@ class BienRepository extends ServiceEntityRepository
     {
         $result=$this->createQueryBuilder('b')
         // ->andWhere('b.exampleField = :val')
-        ->select('b.surface,b.titre,b.image,b.id')
+        ->select('b.surface,b.titre,b.image,b.id,b.prix')
         
          // ->setParameter('val', $value)
         // ->addSelect('RAND() as HIDDEN rand')
