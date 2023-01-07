@@ -30,7 +30,7 @@ class Bien
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    public $status;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,24 +54,14 @@ class Bien
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $reference;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $description;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $date_creation_at;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $prix;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $descriptif;
 
     public function getId(): ?int
     {
@@ -142,6 +132,7 @@ class Bien
     {
         return $this->categorie;
     }
+    
 
     public function setCategorie(?Categorie $categorie): self
     {
@@ -166,42 +157,6 @@ class Bien
         return $this;
     }
 
-    public function getReference(): ?string
-    {
-        return $this->reference;
-    }
-
-    public function setReference(string $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getDateCreationAt(): ?\DateTimeImmutable
-    {
-        return $this->date_creation_at;
-    }
-
-    public function setDateCreationAt(\DateTimeImmutable $date_creation_at): self
-    {
-        $this->date_creation_at = $date_creation_at;
-
-        return $this;
-    }
-
     public function getPrix(): ?float
     {
         return $this->prix;
@@ -210,6 +165,18 @@ class Bien
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDescriptif(): ?string
+    {
+        return $this->descriptif;
+    }
+
+    public function setDescriptif(string $descriptif): self
+    {
+        $this->descriptif = $descriptif;
 
         return $this;
     }

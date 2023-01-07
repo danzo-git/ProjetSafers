@@ -50,17 +50,19 @@ class BienRepository extends ServiceEntityRepository
 //     */
    public function find5Biens(): array
     {
-        return $this->createQueryBuilder('b')
-           // ->andWhere('b.exampleField = :val')
-           ->select('b.surface,b.titre,b.image,b.id')
-           
-            // ->setParameter('val', $value)
-           // ->addSelect('RAND() as HIDDEN rand')
-            //->from('Bien','b')
-            // ->orderBy( 'rand')
-            ->setMaxResults(5)
-            ->getQuery()
-            ->getResult();
+        $result=$this->createQueryBuilder('b')
+        // ->andWhere('b.exampleField = :val')
+        ->select('b.surface,b.titre,b.image,b.id')
+        
+         // ->setParameter('val', $value)
+        // ->addSelect('RAND() as HIDDEN rand')
+         //->from('Bien','b')
+         // ->orderBy( 'rand')
+         ->setMaxResults(5)
+         ->getQuery()
+         ->getResult();
+         shuffle($result);
+         return $result;
     }
 
     public function find2Biens(): array
@@ -77,6 +79,8 @@ class BienRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+   
 
     // public function findBiens(): array
     // {
@@ -99,4 +103,7 @@ class BienRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+
 }

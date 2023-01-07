@@ -9,6 +9,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
+
 class BienCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -19,15 +22,15 @@ class BienCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('reference');
-        yield TextField::new('titre');
-        yield TextField::new('description');
-        yield TextField::new('postal');
-        yield NumberField::new('surface');
-        yield TextField::new('prix');
-        yield BooleanField::new('status');
-        yield TextField::new('ville');
         yield AssociationField::new('categorie');
+        yield TextField::new('titre');
+        yield NumberField::new('surface');
+       // yield TextField::new('postal');
+        yield BooleanField::new('status');
+        yield TextEditorField::new('descriptif');
+        yield NumberField::new('prix');
+        yield TextField::new('ville');
+        yield TextField::new('postal');
         yield ImageField::new('image')->setBasePath('uploads/images/')
         ->setUploadDir('/public/uploads/images/');
         

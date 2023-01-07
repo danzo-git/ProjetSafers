@@ -19,18 +19,31 @@
               
 				
 			</div>
-              <span> <u>Info sur la safer :</u> </span>
-			<ul class="list">
-				<li class="item"> {{titre}}</li>
-				<li class="item">{{surface}}</li>
-				<li class="item">{{ville}}</li>
-				<li class="item">{{code_ville}} </li>
-                <li class="item">{{disponibilite == 1  ? "a louer": "en vente"}}</li>
-				 <li class="item">{{categorie}}</li>
-				  <li class="item">{{categorie_slug}}</li>
-
-			</ul>
 			
+              <span> <u>Info sur la safer :</u> </span>
+
+{% for car in cart %}
+    {% for categori in categorie %}
+        {% if categori.id == car.getCategorie.id %}
+            {% set nomCat = categori.nom %}
+           <li class="item">{{ nomCat }}</li>
+        {% endif %} 
+    {% endfor %}
+    <ul class="list">
+        <li class="item">{{ car.titre }}</li>
+        <li class="item">{{ car.surface }}</li>
+        <li class="item">{{ car.postal }}</li>
+        <li class="item">{{ car.ville }}</li> 
+        <li class="item">{{ car.isStatus == false ? "a louer" : "en vente" }}</li>
+        
+        {# <li class="item">{{ car.categorie_slug }}</li> #}
+        <li class="item">{{ car.descriptif }}</li>
+    </ul>
+{% endfor %}
+
+
+
+
 			</body>
 		<!-- BUY ME A COFFEE AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
 
