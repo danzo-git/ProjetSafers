@@ -24,7 +24,14 @@
                 <div class="card-body">
             <h5 class="card-title">Categories la plus prisé</h5>
             {# {{ dump(findMostFrequentValue) }} #}
-            <p class="card-text h3">{{findMostFrequentValue['value'] }} ({{findMostFrequentValue['count']}})</p>
+            <p class="card-text h3">
+              
+                {% if(findMostFrequentValue['value'] is defined)%}
+                    {{findMostFrequentValue['value']}}
+                    {%else  %}
+                    {{"rien"}}
+                    {%endif%}
+            </p>
         </div>
        
         </div>
@@ -32,7 +39,15 @@
                 <div class="card-body">
             <h5 class="card-title">bien le plus prisé</h5>
             {# {{ dump(findMostFrequentValue) }} #}
-            <p class="card-text h3">{{findMostFrequentbien['value'] }} ({{findMostFrequentbien['count']}})</p>
+            <p class="card-text h3">
+
+                {% if (findMostFrequentbien['value'] is defined) %}
+           {{findMostFrequentbien['value']}}     ({{findMostFrequentbien['count']}})
+                {% else %}
+                    {{'aucun'}}
+                {% endif %} 
+                
+                </p>
         </div>
  </div>
  </div>
