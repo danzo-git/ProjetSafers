@@ -27,7 +27,7 @@ class BienCrudController extends AbstractCrudController
         yield NumberField::new('surface');
        // yield TextField::new('postal');
         yield BooleanField::new('status');
-        yield TextEditorField::new('descriptif');
+        yield TextField::new('descriptif');
         yield NumberField::new('prix');
         yield TextField::new('ville');
         yield TextField::new('postal');

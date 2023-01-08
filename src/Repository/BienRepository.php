@@ -58,7 +58,7 @@ class BienRepository extends ServiceEntityRepository
         // ->addSelect('RAND() as HIDDEN rand')
          //->from('Bien','b')
          // ->orderBy( 'rand')
-         ->setMaxResults(5)
+         ->setMaxResults(3)
          ->getQuery()
          ->getResult();
          shuffle($result);
