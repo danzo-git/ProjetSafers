@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 
@@ -28,7 +29,7 @@ class BienCrudController extends AbstractCrudController
        // yield TextField::new('postal');
         yield BooleanField::new('status');
         yield TextEditorField::new('descriptif');
-        yield NumberField::new('prix');
+        yield MoneyField::new('prix')->setCurrency('EUR');
         yield TextField::new('ville');
         yield TextField::new('postal');
         yield TextField::new('reference');
