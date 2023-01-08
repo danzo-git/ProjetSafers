@@ -7,11 +7,64 @@
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
  
 
-    This friendly message is coming from:
+    <div class="text-center"><h4>je m'envois les safer</h4></div>
+    <div class="container">
+   <div class="row">
+   {% for sessio in app.session.get('cart', []) %}
+  <div class="card mb-3 offset-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/uploads/images/{{sessio.getImage}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{sessio.getTitre}}</h5>
+        <span class="card-text">{{sessio.getDescriptif}}</span><br/>
+            <span class="card-text">{{sessio.getPrix}}</span><br/>
+            <span class="card-text">{{sessio.getVille}}</span><br/>
+       
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+ 
+</div>
+</div>
+  
+  </div>
+</div>
    {{ form_start(form) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.email) }}
-    <button type="submit">Envoyer</button>
+  <div class="text-center">  {{ form_row(form.name) }}</div><br/>
+   <div class="text-center">  {{ form_row(form.email) }}</div>
+  <div class="text-center">  <button type="submit" class="btn btn-success">Envoyer</button></div>
 {{ form_end(form) }}
 </div>
+<style>
+    /* Styles pour les formulaires */
+    form {
+        background-color: #eee;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    /* Styles pour les champs de formulaire */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 30%;
+    }
+    /* Styles pour les boutons de formulaire */
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+
 {% endblock %}

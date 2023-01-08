@@ -31,6 +31,8 @@ class BienCrudController extends AbstractCrudController
         yield NumberField::new('prix');
         yield TextField::new('ville');
         yield TextField::new('postal');
+        yield TextField::new('reference');
+
         yield ImageField::new('image')->setBasePath('uploads/images/')
         ->setUploadDir('/public/uploads/images/');
         

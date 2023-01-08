@@ -117,10 +117,16 @@ class HomeController extends AbstractController
         ]);
     }
 
-
+       /**
+        * 
+     * @Route("/header", name="app_home")
+     * 
+     */ 
+   
+}
    
    
 
        
     
-    }
+    

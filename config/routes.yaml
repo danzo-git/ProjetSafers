@@ -29,3 +29,6 @@ ContactMessage:
 contact:
     path: contact
     controller: App\Controller\ContactController::index
+critere:   
+    path: /critere
+    controller: App\Controller\HomeController::searchAction
